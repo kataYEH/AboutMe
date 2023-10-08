@@ -6,7 +6,10 @@ import { Provider } from "./context";
 
 // components
 import './App.css';
-import NavBar from "./components/NavBar/NavBar";
+import TitleBar from "./components/TitleBar/TitleBar";
+import MainPage from "./MainPage/MainPage";
+
+
 
 // Libary
 import SiteNav, {ContentGroup} from 'react-site-nav'
@@ -24,26 +27,30 @@ import { far } from '@fortawesome/free-regular-svg-icons'
 function App() {
   // Golbal
   const contextValue = {
+    Johnny_Icon:require('./images/Johnny_Icon.png'),
+    MyBGPic:require('./images/me.jpg'),
+    MyPic:require('./images/m32.jpg'),
+    TitleBarMenu:{
+      "關於我":"AboutMe",
+      "求學經歷":{
+        "大學":"University",
+        "機器人研究中心":"Robotics_Research_Center",
+        "碩士":"Graduate_School"
+      },
+      "工作經歷":"Work_Experience",
+      "其他經歷":"Other_Experience"
+    },
     MyName : "葉昕語",
     MyNameInEnglish:"Yeh,Shin Yeu",
     MyEnglishName:"Johnny Yeh"
   };
 
 
-
   return (
     <Provider value={contextValue}>
       <div className="App">
-        <NavBar/>
-        <FontAwesomeIcon icon="fa-solid fa-cart-shopping" />
-        <FontAwesomeIcon icon="fa-regular fa-eye" />
-
-        
-        {/* <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path="/my-story" component={MyStory}/>
-        </Switch> */}
-
+        <TitleBar/>
+        <MainPage />
 
 
       </div>
